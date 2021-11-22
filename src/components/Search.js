@@ -2,23 +2,43 @@ import React from 'react'
 
 class Search extends React.Component{
     state = {
-        search:'',
+        search:'panda',
+        type:'all',
     }
     handleKey = (e)=>{
         if(e.key === 'Enter'){
-            this.props.searchMovies(this.state.search)
+            this.props.searchMovies(this.state.search,this.state.type);
         }
+    }
+    handleFilter = (e)=>{
+        this.setState( ()=> ({type:e.target.dataset.type}),()=>{
+            this.props.searchMovies(this.state.search, this.state.type)
+        })
     }
    render(){
         return (
             <>
-            <div class="row">
+            <div className="row">
                 <div className="col s12 btn_search">
                     <div className="input-field inline ">
-                        <input value={this.state.search} placeholder="Search" id="email_inline" type="email" class="validate" onChange={(e)=>this.setState({search:e.target.value})} onKeyDown = {this.handleKey} />
+                        <input value={this.state.search} placeholder="Search" id="email_inline" type="email" className="validate" onChange={(e)=>this.setState({search:e.target.value})} onKeyDown = {this.handleKey} />
                     </div>
-                    <button type="submit" onClick={()=> this.props.searchMovies(this.state.search)} className="btn search_btn">Search</button>
+                    <button type="submit" onClick={()=> this.props.searchMovies(this.state.search,this.state.type)} className="btn search_btn">Search</button>
                 </div>
+            </div>
+            <div className="label_input">
+                <label>
+                    <input className="with-gap" name="type" type="radio" data-type="all"  onChange={this.handleFilter} checked={this.state.type === 'all'} />
+                    <span>All</span>
+                </label>
+                <label>
+                    <input className="with-gap" name="type" type="radio" data-type="movie" onChange={this.handleFilter} checked={this.state.type === 'movie'} />
+                    <span>Movies only</span>
+                </label>
+                <label>
+                    <input className="with-gap" name="type" type="radio" data-type="series" onChange={this.handleFilter} checked={this.state.type === 'series'} />
+                    <span>Series only</span>
+                </label>
             </div>
             </>
         )

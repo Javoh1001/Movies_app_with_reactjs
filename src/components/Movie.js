@@ -11,7 +11,7 @@ const Movie = (props) => {
                 </div>
                 <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">{Title}</span>
-                    <p>{Year}<a href="#">{Type}</a></p>
+                    <p>{Year}<a href="#">&nbsp;{Type}</a></p>
                 </div>
                 {/* <div className="card-reveal">
                     <span className="card-title grey-text text-darken-4">Card Title<i className="material-icons right">close</i></span>
