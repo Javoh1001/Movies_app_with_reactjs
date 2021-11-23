@@ -7,9 +7,9 @@ const Header = () =>{
             <nav>
                 <HeaderContainer>
                     <div className="nav-wrapper">
-                        <a href="#" className="brand-logo">React Movies</a>
+                        <span className="brand-logo logos">React Movies</span>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        <li><a href="#">Movies</a></li>
+                        <li><span>Movies</span></li>
                     </ul>
                     </div>
                 </HeaderContainer>

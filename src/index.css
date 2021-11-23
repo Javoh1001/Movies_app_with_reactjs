@@ -22,8 +22,14 @@ code {
   top:30px;
   right:0;
 }
+
 .label_input label:not(:last-child){
     margin-right:1rem;
+}
+@media screen and (max-width:600px){
+  .brand-logo.logos{
+    font-size:14px;
+  }
 }
 .shake-horizontal {
 	        -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
